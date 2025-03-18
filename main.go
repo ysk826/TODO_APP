@@ -17,11 +17,23 @@ func main() {
 
 	fmt.Println(models.Db)
 
-	u := &models.User{}
-	u.Name = "test"
-	u.Email = "example.com"
-	u.Password = "testtest"
+	/*
+		u := &models.User{}
+		u.Name = "test"
+		u.Email = "example.com"
+		u.Password = "testtest"
+		fmt.Println(u)
+
+		u.CreateUser()
+	*/
+
+	u, _ := models.GetUser(1)
 	fmt.Println(u)
 
-	u.CreateUser()
+	u.Name = "Test3"
+	u.Email = "test3@example.com"
+	u.UpdateUser()
+	u, _ = models.GetUser(1)
+	fmt.Println(u)
+
 }
