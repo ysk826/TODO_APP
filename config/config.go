@@ -2,6 +2,7 @@ package config
 
 import (
 	"log"
+	"todo_app/utils"
 
 	"gopkg.in/go-ini/ini.v1"
 )
@@ -16,11 +17,16 @@ type ConfigList struct {
 // gloabal variable
 var Config ConfigList
 
+// LoadConfig()はconfig.iniファイルを読み込む
+// LoggingSettings()はログの設定を行う
+// この関数はmain.goで一度だけ呼び出される
 func init() {
 	LoadConfig()
+	utils.LoggingSettings(Config.LogFile)
 }
 
 func LoadConfig() {
+	// Load()は作業ディレクトリを基準にファイルを読み込む
 	cfg, err := ini.Load("config.ini")
 	if err != nil {
 		log.Fatalln(err)
