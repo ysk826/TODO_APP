@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+	fmt.Println(models.Db)
 	/*
 		fmt.Println(config.Config.Port)
 		fmt.Println(config.Config.SQLDriver)
@@ -14,8 +15,6 @@ func main() {
 
 		log.Println("test")
 	*/
-
-	fmt.Println(models.Db)
 
 	/*
 		u := &models.User{}
@@ -27,17 +26,20 @@ func main() {
 		u.CreateUser()
 	*/
 
-	u, _ := models.GetUser(1)
+	u, _ := models.GetUser(2)
 	fmt.Println(u)
 
-	u.Name = "Test3"
-	u.Email = "test3@example.com"
-	u.UpdateUser()
-	u, _ = models.GetUser(1)
-	fmt.Println(u)
+	/*
+		u.Name = "Test3"
+		u.Email = "test3@example.com"
+		u.UpdateUser()
+		u, _ = models.GetUser(1)
+		fmt.Println(u)
 
-	u.DeleteUser()
-	u, _ = models.GetUser(1)
-	fmt.Println(u)
+		u.DeleteUser()
+		u, _ = models.GetUser(1)
+		fmt.Println(u)
+	*/
 
+	u.CreateTodo("First Todo")
 }
