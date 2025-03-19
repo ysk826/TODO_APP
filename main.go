@@ -25,10 +25,10 @@ func main() {
 
 		u.CreateUser()
 	*/
-
-	u, _ := models.GetUser(2)
-	fmt.Println(u)
-
+	/*
+		u, _ := models.GetUser(2)
+		fmt.Println(u)
+	*/
 	/*
 		u.Name = "Test3"
 		u.Email = "test3@example.com"
@@ -41,5 +41,10 @@ func main() {
 		fmt.Println(u)
 	*/
 
-	u.CreateTodo("First Todo")
+	/*
+		u.CreateTodo("First Todo")
+	*/
+
+	t, _ := models.GetTodo(1)
+	fmt.Println(t)
 }
