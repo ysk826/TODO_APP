@@ -1,0 +1,536 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+<additional_info>
+
+</additional_info>
+
+</file_summary>
+
+<directory_structure>
+app/
+  controllers/
+    route_main.go
+    server.go
+  models/
+    base.go
+    todos.go
+    users.go
+  views/
+    templates/
+      top.html
+config/
+  config.go
+utils/
+  loging.go
+config.ini
+go.mod
+main.go
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="app/controllers/route_main.go">
+package controllers
+
+import (
+	"html/template"
+	"log"
+	"net/http"
+)
+
+// top()はトップページを表示する関数
+// 第一引数: レスポンスライター　クライアントに送信するためのインターフェース
+// 第二引数: リクエスト
+func top(w http.ResponseWriter, r *http.Request) {
+	// ParseFiles()は指定したファイルを読み込む
+	// Execute()は読み込んだファイルを実行する
+	// 第一引数: レスポンスライター
+	// 第二引数: テンプレートに渡すデータ
+	t, err := template.ParseFiles("app/views/templates/top.html")
+	if err != nil {
+		log.Fatalln(err)
+	}
+	t.Execute(w, "nil")
+}
+</file>
+
+<file path="app/controllers/server.go">
+package controllers
+
+import (
+	"net/http"
+	"todo_app/config"
+)
+
+// StattMainServer()はサーバーを起動する関数
+func StartMainServer() error {
+	files := http.FileServer(http.Dir(config.Config.Static))
+	http.Handle("/static/", http.StripPrefix("/static/", files))
+	// HandleFunc()は指定したパスに対するリクエストを処理するハンドラを登録する
+	// 第一引数: パス
+	// 第二引数: ハンドラ
+	// 第一引数のパスにリクエストが来た場合、第二引数のハンドラが呼び出される
+	http.HandleFunc("/", top)
+
+	// ListenAndServe()は指定したポートでサーバーを起動する
+	// 第一引数: ポート番号
+	// 第二引数: ハンドラ
+	// 返り値: エラー
+	return http.ListenAndServe(":"+config.Config.Port, nil)
+}
+</file>
+
+<file path="app/views/templates/top.html">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+</html>
+</file>
+
+<file path="utils/loging.go">
+package utils
+
+import (
+	"io"
+	"log"
+	"os"
+)
+
+func LoggingSettings(logFile string) {
+	// OpenFileは指定されたファイルを開く
+	// 第一引数: ファイル名
+	// 第二引数: 読み書と作成と追記の権限を付与、なければ作成
+	// 第三引数: ファイルのパーミッション
+	logfile, err := os.OpenFile(logFile, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	//　MultiWriterで標準出力とログファイルの両方に書き込むライターを作成
+	// multiLogFileはio.Writer型で標準出力とファイル出力を同時に行う
+	// SetFlagsはログのプレフィックスに日付、時刻、ファイル名を付与
+	// SetOutputはログの出力先を作成したライターに設定
+	multiLogFile := io.MultiWriter(os.Stdout, logfile)
+	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
+	log.SetOutput(multiLogFile)
+}
+</file>
+
+<file path="config.ini">
+[web]
+port = 8080
+logfile = webapp.log
+
+[db]
+driver = sqlite3
+name = webapp.sql
+</file>
+
+<file path="app/models/base.go">
+package models
+
+import (
+	"crypto/sha1"
+	"database/sql"
+	"fmt"
+	"log"
+	"todo_app/config"
+
+	"github.com/google/uuid"
+
+	_ "github.com/mattn/go-sqlite3"
+)
+
+var Db *sql.DB
+
+var err error
+
+const (
+	tableNameUser = "users"
+	tableNameTodo = "todos"
+)
+
+func init() {
+	// Open()はデータベースへの接続を確立する
+	// 第一引数: ドライバ名（データベースの種類）
+	// 第二引数: データベース名
+	// 返り値: データベース接続のインスタンス
+	Db, err = sql.Open(config.Config.SQLDriver, config.Config.DbName)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	// %sはtableNameUserに置き換えられる
+	// CREATE TABLE IF NOT EXISTSはテーブルが存在しない場合にテーブルを作成する
+	cmdU := fmt.Sprintf(`CREATE TABLE IF NOT EXISTS %s(
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		uuid STRING NOT NULL UNIQUE,
+		name STRING,
+		email STRING,
+		password STRING,
+		created_at DATETIME)`, tableNameUser)
+
+	Db.Exec(cmdU)
+
+	// %sはtableNameTodoに置き換えられる
+	// CREATE TABLE IF NOT EXISTSはテーブルが存在しない場合にテーブルを作成する
+	cmdT := fmt.Sprintf(`CREATE TABLE IF NOT EXISTS %s(
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		content TEXT,
+		user_id INTEGER,
+		created_at DATETIME)`, tableNameTodo)
+
+	Db.Exec(cmdT)
+}
+
+// ユーザーを作成する関数
+func createUUID() (uuidobj uuid.UUID) {
+	uuidobj, _ = uuid.NewUUID()
+	return uuidobj
+}
+
+// パスワードをハッシュ化する関数
+func Encrypt(plaintext string) (cryptext string) {
+	cryptext = fmt.Sprintf("%x", sha1.Sum([]byte(plaintext)))
+	return cryptext
+}
+</file>
+
+<file path="app/models/users.go">
+package models
+
+import (
+	"log"
+	"time"
+)
+
+type User struct {
+	ID        int
+	UUID      string
+	Name      string
+	Email     string
+	Password  string
+	CreatedAt time.Time
+}
+
+// ユーザーをDBに作成する関数
+func (u *User) CreateUser() (err error) {
+	cmd := `INSERT INTO users (
+		uuid,
+		name,
+		email,
+		password,
+		created_at) VALUES (?, ?, ?, ?, ?)`
+
+	_, err = Db.Exec(cmd,
+		createUUID(),
+		u.Name,
+		u.Email,
+		Encrypt(u.Password),
+		time.Now())
+
+	if err != nil {
+		log.Fatalln(err)
+	}
+	return err
+}
+
+// ユーザーをDBから取得する関数
+func GetUser(id int) (user User, err error) {
+	user = User{}
+	cmd := `SELECT
+				id,
+				uuid,
+				name,
+				email,
+				password,
+				created_at
+			FROM users WHERE id = ?`
+	// QueryRow()は一行を返す
+	// Scan()はQueryRow()の返り値を引数に取り、引数に指定した変数に値をセットする
+	err = Db.QueryRow(cmd, id).Scan(
+		&user.ID,
+		&user.UUID,
+		&user.Name,
+		&user.Email,
+		&user.Password,
+		&user.CreatedAt)
+	return user, err
+}
+
+// ユーザーを更新する関数
+func (u *User) UpdateUser() (err error) {
+	cmd := `UPDATE users SET
+			name = ?,
+			email = ?
+			WHERE id = ?`
+	// Exec()はコマンドの結果を返すが、今回は使わないので_で受ける
+	_, err = Db.Exec(cmd, u.Name, u.Email, u.ID)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	return err
+}
+
+// ユーザーを削除する関数
+func (u *User) DeleteUser() (err error) {
+	cmd := `DELETE FROM users WHERE id = ?`
+	_, err = Db.Exec(cmd, u.ID)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	return err
+}
+</file>
+
+<file path="go.mod">
+module todo_app
+
+go 1.22.5
+
+require (
+	github.com/google/uuid v1.6.0
+	github.com/mattn/go-sqlite3 v1.14.24 // indirect
+	gopkg.in/go-ini/ini.v1 v1.67.0 // indirect
+)
+</file>
+
+<file path="config/config.go">
+package config
+
+import (
+	"log"
+	"todo_app/utils"
+
+	"gopkg.in/go-ini/ini.v1"
+)
+
+type ConfigList struct {
+	Port      string
+	SQLDriver string
+	DbName    string
+	LogFile   string
+	Static    string
+}
+
+// gloabal variable
+var Config ConfigList
+
+// LoadConfig()はconfig.iniファイルを読み込む
+// LoggingSettings()はログの設定を行う
+// この関数はmain.goで一度だけ呼び出される
+func init() {
+	LoadConfig()
+	utils.LoggingSettings(Config.LogFile)
+}
+
+func LoadConfig() {
+	// Load()は作業ディレクトリを基準にファイルを読み込む
+	cfg, err := ini.Load("config.ini")
+	if err != nil {
+		log.Fatalln(err)
+	}
+	Config = ConfigList{
+		Port:      cfg.Section("web").Key("port").MustString("8080"),
+		SQLDriver: cfg.Section("db").Key("driver").String(),
+		DbName:    cfg.Section("db").Key("name").String(),
+		LogFile:   cfg.Section("web").Key("logfile").String(),
+		Static:    cfg.Section("web").Key("static").String(),
+	}
+}
+</file>
+
+<file path="app/models/todos.go">
+package models
+
+import (
+	"log"
+	"time"
+)
+
+type Todo struct {
+	ID        int
+	Content   string
+	UserID    int
+	CreatedAt time.Time
+}
+
+// ユーザーに紐づくTodoをDBに作成する関数
+func (u *User) CreateTodo(content string) (err error) {
+	cmd := `INSERT INTO todos (
+			content,
+			user_id,
+			created_at) VALUES (?, ?, ?)`
+
+	_, err = Db.Exec(cmd, content, u.ID, time.Now())
+	if err != nil {
+		log.Fatalln(err)
+	}
+	return err
+}
+
+// TodoをDBから取得する関数
+func GetTodo(id int) (todo Todo, err error) {
+	cmd := `SELECT
+				id,
+				content,
+				user_id,
+				created_at
+			FROM todos WHERE id = ?`
+
+	todo = Todo{}
+	err = Db.QueryRow(cmd, id).Scan(
+		&todo.ID,
+		&todo.Content,
+		&todo.UserID,
+		&todo.CreatedAt)
+
+	return todo, err
+}
+
+// 全てのTodoをDBから取得する関数
+func GetTodos() (todos []Todo, err error) {
+	cmd := `SELECT
+				id,
+				content,
+				user_id,
+				created_at
+			FROM todos`
+
+	// Query()は複数行を返す
+	rows, err := Db.Query(cmd)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	// rows.Next()は次の行があるかどうかを確認する
+	for rows.Next() {
+		var todo Todo
+		err = rows.Scan(
+			&todo.ID,
+			&todo.Content,
+			&todo.UserID,
+			&todo.CreatedAt)
+		if err != nil {
+			log.Fatalln(err)
+		}
+		todos = append(todos, todo)
+	}
+	// rowsはデータベースへのコネクションを持っているため、処理が終わったら必ずClose()を呼ぶ
+	// リソースの解放を行う
+	rows.Close()
+
+	return todos, err
+}
+
+// ユーザーに紐づくTodoをDBから取得する関数
+func (u *User) GetTodosByUser() (todos []Todo, err error) {
+	cmd := `SELECT
+				id,
+				content,
+				user_id,
+				created_at
+			FROM todos WHERE user_id = ?`
+
+	rows, err := Db.Query(cmd, u.ID)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	for rows.Next() {
+		var todo Todo
+		err = rows.Scan(
+			&todo.ID,
+			&todo.Content,
+			&todo.UserID,
+			&todo.CreatedAt)
+		if err != nil {
+			log.Fatalln(err)
+		}
+		todos = append(todos, todo)
+	}
+	rows.Close()
+	return todos, err
+}
+
+// Todoを更新する関数
+func (t *Todo) UpdateTodo() (err error) {
+	cmd := `UPDATE todos SET
+				content = ?,
+				user_id = ?
+			WHERE id = ?`
+	_, err = Db.Exec(cmd, t.Content, t.UserID, t.ID)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	return err
+}
+
+// Todoを削除する関数
+func (t *Todo) DeleteTodo() (err error) {
+	cmd := `DELETE FROM todos WHERE id = ?`
+	_, err = Db.Exec(cmd, t.ID)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	return err
+}
+</file>
+
+<file path="main.go">
+package main
+
+import (
+	"fmt"
+	"todo_app/app/controllers"
+	"todo_app/app/models"
+)
+
+func main() {
+	fmt.Println(models.Db)
+
+	controllers.StartMainServer()
+
+}
+</file>
+
+</files>
