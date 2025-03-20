@@ -18,5 +18,5 @@ func top(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	t.Execute(w, "nil")
+	t.Execute(w, "hello")
 }

@@ -9,6 +9,7 @@ import (
 func StartMainServer() error {
 	files := http.FileServer(http.Dir(config.Config.Static))
 	http.Handle("/static/", http.StripPrefix("/static/", files))
+
 	// HandleFunc()は指定したパスに対するリクエストを処理するハンドラを登録する
 	// 第一引数: パス
 	// 第二引数: ハンドラ
