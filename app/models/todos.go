@@ -109,12 +109,23 @@ func (u *User) GetTodosByUser() (todos []Todo, err error) {
 	return todos, err
 }
 
+// Todoを更新する関数
 func (t *Todo) UpdateTodo() (err error) {
 	cmd := `UPDATE todos SET
 				content = ?,
 				user_id = ?
 			WHERE id = ?`
 	_, err = Db.Exec(cmd, t.Content, t.UserID, t.ID)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	return err
+}
+
+// Todoを削除する関数
+func (t *Todo) DeleteTodo() (err error) {
+	cmd := `DELETE FROM todos WHERE id = ?`
+	_, err = Db.Exec(cmd, t.ID)
 	if err != nil {
 		log.Fatalln(err)
 	}
