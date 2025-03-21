@@ -38,6 +38,7 @@ func StartMainServer() error {
 	http.HandleFunc("/", top)
 	http.HandleFunc("/signup", signUp)
 	http.HandleFunc("/login", login)
+	http.HandleFunc("/authenticate", authenticate)
 
 	// ListenAndServe()は指定したポートでサーバーを起動する
 	// 第一引数: ポート番号

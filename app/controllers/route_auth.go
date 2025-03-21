@@ -6,6 +6,7 @@ import (
 	"todo_app/app/models"
 )
 
+// signUp()はサインアップページを表示する関数
 func signUp(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
 		generateHTML(w, nil, "layout", "public_navbar", "signup")
@@ -26,6 +27,7 @@ func signUp(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// login()はログインページを表示する関数
 func login(w http.ResponseWriter, r *http.Request) {
 	generateHTML(w, nil, "layout", "public_navbar", "login")
 }
