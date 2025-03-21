@@ -8,5 +8,5 @@ import (
 // 第一引数: レスポンスライター　クライアントに送信するためのインターフェース
 // 第二引数: リクエスト
 func top(w http.ResponseWriter, r *http.Request) {
-	generateHTML(w, "hello", "layout", "top")
+	generateHTML(w, "hello", "layout", "public_navbar", "top")
 }
