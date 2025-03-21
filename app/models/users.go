@@ -111,3 +111,68 @@ func GetUserByEmail(email string) (user User, err error) {
 		&user.CreatedAt)
 	return user, err
 }
+
+// ユーザーのセッションを作成する関数
+// セッションはログイン状態を保持するためのもの
+// セッションはログイン時に作成され、ログアウト時に削除される
+// セッションはユーザーごとに一つだけ作成される
+// セッションはユーザーがログインしているかどうかを判定するために使われる
+func (u *User) CreateSession() (session Session, err error) {
+	session = Session{}
+	cmd1 := `INSERT INTO sessions (
+		uuid,
+		email,
+		user_id,
+		created_at) VALUES (?, ?, ?, ?)`
+	_, err = Db.Exec(cmd1, createUUID(), u.Email, u.ID, time.Now())
+	if err != nil {
+		log.Println(err)
+	}
+
+	cmd2 := `SELECT
+			id,
+			uuid,
+			email,
+			user_id,
+			created_at
+		FROM sessions WHERE user_id = ? AND email = ?`
+	err = Db.QueryRow(cmd2, u.ID, u.Email).Scan(
+		&session.ID,
+		&session.UUID,
+		&session.Email,
+		&session.UserID,
+		&session.CreatedAt)
+
+	return session, err
+}
+
+// セッションが存在するかチェックする関数
+func (sess *Session) CheckSession() (valid bool, err error) {
+	cmd := `SELECT
+				id,
+				uuid,
+				email,
+				user_id,
+				created_at
+			FROM sessions WHERE uuid = ?`
+	// QueryRow()は一行を返す
+	// Scan()はQueryRow()の返り値を引数に取り、引数に指定した変数に値をセットする
+	// クエリの結果がない、型の不一致の場合はerrに値がセットされる
+	err = Db.QueryRow(cmd, sess.UUID).Scan(
+		&sess.ID,
+		&sess.UUID,
+		&sess.Email,
+		&sess.UserID,
+		&sess.CreatedAt)
+
+	if err != nil {
+		valid = false
+		return
+	}
+	// IDが0ならセッションが存在しない
+	// IDは通常1から始まるため
+	if sess.ID != 0 {
+		valid = true
+	}
+	return valid, err
+}
