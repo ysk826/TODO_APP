@@ -37,6 +37,7 @@ func StartMainServer() error {
 	// 第一引数のパスにリクエストが来た場合、第二引数のハンドラが呼び出される
 	http.HandleFunc("/", top)
 	http.HandleFunc("/signup", signUp)
+	http.HandleFunc("/login", login)
 
 	// ListenAndServe()は指定したポートでサーバーを起動する
 	// 第一引数: ポート番号
