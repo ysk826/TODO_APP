@@ -1,9 +1,30 @@
 package controllers
 
 import (
+	"fmt"
+	"html/template"
 	"net/http"
 	"todo_app/config"
 )
+
+// generateHTMLはHTMLを生成する関数
+// 第一引数: レスポンスライター
+// 第二引数: テンプレートに渡すデータ
+// 第三引数: ファイル名
+func generateHTML(w http.ResponseWriter, data interface{}, filenames ...string) {
+	var files []string
+	for _, file := range filenames {
+		files = append(files, fmt.Sprintf("app/views/templates/%s.html", file))
+	}
+	// Must()はエラーがあればpanicを起こす
+	// ParseFiles()は指定したファイルを読み込む
+	// ExecuteTemplate()は読み込んだファイルを実行する
+	// 第一引数: レスポンスライター
+	// 第二引数: テンプレートに渡すデータ
+	// 第三引数: ファイル名
+	templates := template.Must(template.ParseFiles(files...))
+	templates.ExecuteTemplate(w, "layout", data)
+}
 
 // StattMainServer()はサーバーを起動する関数
 func StartMainServer() error {

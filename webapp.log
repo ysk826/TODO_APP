@@ -1,1 +1,639 @@
 2025/03/18 16:07:36 main.go:15: test
+2025/03/21 10:43:53 server.go:3418: http: panic serving 127.0.0.1:63935: template: top.html:1: function "definr" not defined
+goroutine 7 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1031ca9c0?, 0xc00011a100?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x103236388, 0xc0001240e0}, {0x1031b53e0, 0x1032320f0}, {0xc0000c3ab8?, 0xc0000be200?, 0xc0000c3aa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x103236388?, 0xc0001240e0?}, 0xc0000c3b30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x1034b54a0?, {0x103236388?, 0xc0001240e0?}, 0x102f0063a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x102cc3579?, {0x103236388, 0xc0001240e0}, 0xc000120000)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000116030?}, {0x103236388?, 0xc0001240e0?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0000e2120, {0x103236a98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:43:54 server.go:3418: http: panic serving 127.0.0.1:63936: template: top.html:1: function "definr" not defined
+goroutine 8 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1031ca9c0?, 0xc00011a210?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x103236388, 0xc0001242a0}, {0x1031b53e0, 0x1032320f0}, {0xc000067ab8?, 0xc0000be280?, 0xc000067aa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x103236388?, 0xc0001242a0?}, 0xc000067b30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x1034b54a0?, {0x103236388?, 0xc0001242a0?}, 0x102f0063a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x102cc3579?, {0x103236388, 0xc0001242a0}, 0xc0000b2900)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0000955f0?}, {0x103236388?, 0xc0001242a0?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0000e21b0, {0x103236a98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:43:54 server.go:3418: http: panic serving 127.0.0.1:63937: template: top.html:1: function "definr" not defined
+goroutine 34 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1031ca9c0?, 0xc00011a320?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x103236388, 0xc000124460}, {0x1031b53e0, 0x1032320f0}, {0xc00021aab8?, 0xc000202000?, 0xc00021aaa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x103236388?, 0xc000124460?}, 0xc00021ab30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x1034b54a0?, {0x103236388?, 0xc000124460?}, 0x102f0063a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x102cc3579?, {0x103236388, 0xc000124460}, 0xc00022a000)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000204090?}, {0x103236388?, 0xc000124460?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000208000, {0x103236a98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:43:54 server.go:3418: http: panic serving 127.0.0.1:63938: template: top.html:1: function "definr" not defined
+goroutine 21 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1031ca9c0?, 0xc00011a440?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x103236388, 0xc000124620}, {0x1031b53e0, 0x1032320f0}, {0xc00021aab8?, 0xc00015e200?, 0xc00021aaa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x103236388?, 0xc000124620?}, 0xc00021ab30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x1034b54a0?, {0x103236388?, 0xc000124620?}, 0x102f0063a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x102cc3579?, {0x103236388, 0xc000124620}, 0xc000120fc0)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000117080?}, {0x103236388?, 0xc000124620?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000122360, {0x103236a98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:43:58 server.go:3418: http: panic serving 127.0.0.1:63939: template: top.html:1: function "definr" not defined
+goroutine 23 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1031ca9c0?, 0xc00011a560?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x103236388, 0xc0001247e0}, {0x1031b53e0, 0x1032320f0}, {0xc00021aab8?, 0xc00015e280?, 0xc00021aaa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x103236388?, 0xc0001247e0?}, 0xc00021ab30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x1034b54a0?, {0x103236388?, 0xc0001247e0?}, 0x102f0063a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x102cc3579?, {0x103236388, 0xc0001247e0}, 0xc000121440)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000117620?}, {0x103236388?, 0xc0001247e0?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000122510, {0x103236a98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:43:59 server.go:3418: http: panic serving 127.0.0.1:63940: template: top.html:1: function "definr" not defined
+goroutine 50 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1031ca9c0?, 0xc00011a670?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x103236388, 0xc0001249a0}, {0x1031b53e0, 0x1032320f0}, {0xc000216ab8?, 0xc0002b2000?, 0xc000216aa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x103236388?, 0xc0001249a0?}, 0xc000216b30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x1034b54a0?, {0x103236388?, 0xc0001249a0?}, 0x102f0063a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x102cc3579?, {0x103236388, 0xc0001249a0}, 0xc0002c4000)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0002b4090?}, {0x103236388?, 0xc0001249a0?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0002b8000, {0x103236a98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:43:59 server.go:3418: http: panic serving 127.0.0.1:63941: template: top.html:1: function "definr" not defined
+goroutine 9 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1031ca9c0?, 0xc00011a780?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x103236388, 0xc000124b60}, {0x1031b53e0, 0x1032320f0}, {0xc000068ab8?, 0xc0000be380?, 0xc000068aa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x103236388?, 0xc000124b60?}, 0xc000068b30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x1034b54a0?, {0x103236388?, 0xc000124b60?}, 0x102f0063a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x102cc3579?, {0x103236388, 0xc000124b60}, 0xc0000b2a20)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0000956e0?}, {0x103236388?, 0xc000124b60?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0000e2240, {0x103236a98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:43:59 server.go:3418: http: panic serving 127.0.0.1:63942: template: top.html:1: function "definr" not defined
+goroutine 10 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1031ca9c0?, 0xc000016530?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x103236388, 0xc0000fa1c0}, {0x1031b53e0, 0x1032320f0}, {0xc000069ab8?, 0xc0000be400?, 0xc000069aa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x103236388?, 0xc0000fa1c0?}, 0xc000069b30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x1034b54a0?, {0x103236388?, 0xc0000fa1c0?}, 0x102f0063a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x102cc3579?, {0x103236388, 0xc0000fa1c0}, 0xc0000b2b40)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0000957a0?}, {0x103236388?, 0xc0000fa1c0?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0000e22d0, {0x103236a98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:44:04 server.go:3418: http: panic serving 127.0.0.1:63943: template: top.html:1: function "definr" not defined
+goroutine 12 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1031ca9c0?, 0xc000016650?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x103236388, 0xc0000fa460}, {0x1031b53e0, 0x1032320f0}, {0xc000069ab8?, 0xc0000be480?, 0xc000069aa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x103236388?, 0xc0000fa460?}, 0xc000069b30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x1034b54a0?, {0x103236388?, 0xc0000fa460?}, 0x102f0063a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x102cc3579?, {0x103236388, 0xc0000fa460}, 0xc0000b2fc0)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000095d40?}, {0x103236388?, 0xc0000fa460?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0000e2480, {0x103236a98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:44:48 server.go:3418: http: panic serving 127.0.0.1:63949: template: top.html:1: function "definr" not defined
+goroutine 7 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc000116110?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc0001260e0}, {0x10551c3e0, 0x1055990f0}, {0xc0000c3ab8?, 0xc0000be200?, 0xc0000c3aa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc0001260e0?}, 0xc0000c3b30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc0001260e0?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc0001260e0}, 0xc000122000)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000112030?}, {0x10559d388?, 0xc0001260e0?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0000e4090, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:44:49 server.go:3418: http: panic serving 127.0.0.1:63950: template: top.html:1: function "definr" not defined
+goroutine 8 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc000116220?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc0001262a0}, {0x10551c3e0, 0x1055990f0}, {0xc000067ab8?, 0xc0000be280?, 0xc000067aa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc0001262a0?}, 0xc000067b30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc0001262a0?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc0001262a0}, 0xc0000b2900)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0000955f0?}, {0x10559d388?, 0xc0001262a0?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0000e4120, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:44:49 server.go:3418: http: panic serving 127.0.0.1:63951: template: top.html:1: function "definr" not defined
+goroutine 34 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc000116330?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc000126460}, {0x10551c3e0, 0x1055990f0}, {0xc0001a0ab8?, 0xc000188000?, 0xc0001a0aa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc000126460?}, 0xc0001a0b30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc000126460?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc000126460}, 0xc0001ac000)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc00018a090?}, {0x10559d388?, 0xc000126460?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc00018e000, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:44:49 server.go:3418: http: panic serving 127.0.0.1:63952: template: top.html:1: function "definr" not defined
+goroutine 21 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc000116450?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc000126620}, {0x10551c3e0, 0x1055990f0}, {0xc0001a0ab8?, 0xc000160200?, 0xc0001a0aa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc000126620?}, 0xc0001a0b30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc000126620?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc000126620}, 0xc000122c60)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000113080?}, {0x10559d388?, 0xc000126620?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000124360, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:44:50 server.go:3418: http: panic serving 127.0.0.1:63953: template: top.html:1: function "definr" not defined
+goroutine 23 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc000116570?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc0001268c0}, {0x10551c3e0, 0x1055990f0}, {0xc0001a0ab8?, 0xc000160280?, 0xc0001a0aa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc0001268c0?}, 0xc0001a0b30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc0001268c0?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc0001268c0}, 0xc000123200)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000113620?}, {0x10559d388?, 0xc0001268c0?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000124510, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:44:51 server.go:3418: http: panic serving 127.0.0.1:63954: template: top.html:1: function "definr" not defined
+goroutine 25 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc000306100?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc000324000}, {0x10551c3e0, 0x1055990f0}, {0xc00019cab8?, 0xc000160300?, 0xc00019caa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc000324000?}, 0xc00019cb30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc000324000?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc000324000}, 0xc000308000)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000302030?}, {0x10559d388?, 0xc000324000?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0001246c0, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:44:51 server.go:3418: http: panic serving 127.0.0.1:63955: template: top.html:1: function "definr" not defined
+goroutine 26 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc000306210?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc0003241c0}, {0x10551c3e0, 0x1055990f0}, {0xc0001a0ab8?, 0xc000160380?, 0xc0001a0aa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc0003241c0?}, 0xc0001a0b30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc0003241c0?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc0003241c0}, 0xc000123680)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000113c20?}, {0x10559d388?, 0xc0003241c0?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000124750, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:44:51 server.go:3418: http: panic serving 127.0.0.1:63956: template: top.html:1: function "definr" not defined
+goroutine 52 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc000306330?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc000324380}, {0x10551c3e0, 0x1055990f0}, {0xc0001a0ab8?, 0xc00035c180?, 0xc0001a0aa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc000324380?}, 0xc0001a0b30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc000324380?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc000324380}, 0xc0003087e0)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000302b40?}, {0x10559d388?, 0xc000324380?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc00030c240, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:44:52 server.go:3418: http: panic serving 127.0.0.1:63957: template: top.html:1: function "definr" not defined
+goroutine 54 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc000306450?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc000324540}, {0x10551c3e0, 0x1055990f0}, {0xc0001a0ab8?, 0xc00035c200?, 0xc0001a0aa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc000324540?}, 0xc0001a0b30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc000324540?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc000324540}, 0xc000308c60)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0003030e0?}, {0x10559d388?, 0xc000324540?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc00030c3f0, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:44:57 server.go:3418: http: panic serving 127.0.0.1:63958: template: top.html:1: function "definr" not defined
+goroutine 56 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc000306580?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc0003247e0}, {0x10551c3e0, 0x1055990f0}, {0xc0001a0ab8?, 0xc00035c280?, 0xc0001a0aa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc0003247e0?}, 0xc0001a0b30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc0003247e0?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc0003247e0}, 0xc0003090e0)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000303680?}, {0x10559d388?, 0xc0003247e0?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc00030c5a0, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:44:57 server.go:3418: http: panic serving 127.0.0.1:63959: template: top.html:1: function "definr" not defined
+goroutine 57 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc000306690?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc000324a80}, {0x10551c3e0, 0x1055990f0}, {0xc00019cab8?, 0xc00035c300?, 0xc00019caa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc000324a80?}, 0xc00019cb30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc000324a80?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc000324a80}, 0xc000309200)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000303740?}, {0x10559d388?, 0xc000324a80?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc00030c630, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:44:57 server.go:3418: http: panic serving 127.0.0.1:63960: template: top.html:1: function "definr" not defined
+goroutine 60 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc0003067b0?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc000324d20}, {0x10551c3e0, 0x1055990f0}, {0xc00019cab8?, 0xc00035c380?, 0xc00019caa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc000324d20?}, 0xc00019cb30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc000324d20?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc000324d20}, 0xc000309b00)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0003a4240?}, {0x10559d388?, 0xc000324d20?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc00030c900, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:45:08 server.go:3418: http: panic serving 127.0.0.1:63962: template: top.html:1: function "definr" not defined
+goroutine 62 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc0003068d0?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc000324fc0}, {0x10551c3e0, 0x1055990f0}, {0xc00019cab8?, 0xc00035c400?, 0xc00019caa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc000324fc0?}, 0xc00019cb30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc000324fc0?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc000324fc0}, 0xc0003c6000)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0003a47e0?}, {0x10559d388?, 0xc000324fc0?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc00030cab0, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:45:09 server.go:3418: http: panic serving 127.0.0.1:63963: template: top.html:1: function "definr" not defined
+goroutine 27 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc0001166a0?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc000126a80}, {0x10551c3e0, 0x1055990f0}, {0xc000067ab8?, 0xc000160400?, 0xc000067aa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc000126a80?}, 0xc000067b30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc000126a80?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc000126a80}, 0xc0001237a0)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000113ce0?}, {0x10559d388?, 0xc000126a80?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc0001247e0, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:45:09 server.go:3418: http: panic serving 127.0.0.1:63964: template: top.html:1: function "definr" not defined
+goroutine 64 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc0001167b0?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc000126c40}, {0x10551c3e0, 0x1055990f0}, {0xc00019cab8?, 0xc00035c480?, 0xc00019caa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc000126c40?}, 0xc00019cb30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc000126c40?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc000126c40}, 0xc0003c65a0)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0003a4d80?}, {0x10559d388?, 0xc000126c40?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc00030cc60, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:45:09 server.go:3418: http: panic serving 127.0.0.1:63965: template: top.html:1: function "definr" not defined
+goroutine 30 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc0001168d0?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc000126e00}, {0x10551c3e0, 0x1055990f0}, {0xc00019cab8?, 0xc000160480?, 0xc00019caa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc000126e00?}, 0xc00019cb30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc000126e00?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc000126e00}, 0xc0002c4120)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0002b27e0?}, {0x10559d388?, 0xc000126e00?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000124ab0, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:45:11 server.go:3418: http: panic serving 127.0.0.1:63966: template: top.html:1: function "definr" not defined
+goroutine 32 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc0001169f0?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc000126fc0}, {0x10551c3e0, 0x1055990f0}, {0xc00019cab8?, 0xc000160500?, 0xc00019caa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc000126fc0?}, 0xc00019cb30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc000126fc0?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc000126fc0}, 0xc0002c45a0)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0002b2d80?}, {0x10559d388?, 0xc000126fc0?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000124c60, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:45:16 server.go:3418: http: panic serving 127.0.0.1:63967: template: top.html:1: function "definr" not defined
+goroutine 66 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc000180120?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc0001ae0e0}, {0x10551c3e0, 0x1055990f0}, {0xc0001a1ab8?, 0xc000160580?, 0xc0001a1aa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc0001ae0e0?}, 0xc0001a1b30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc0001ae0e0?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc0001ae0e0}, 0xc0001ac120)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc00018a0f0?}, {0x10559d388?, 0xc0001ae0e0?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000124e10, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:45:16 server.go:3418: http: panic serving 127.0.0.1:63968: template: top.html:1: function "definr" not defined
+goroutine 67 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc000180230?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc0001ae380}, {0x10551c3e0, 0x1055990f0}, {0xc00019cab8?, 0xc000160600?, 0xc00019caa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc0001ae380?}, 0xc00019cb30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc0001ae380?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc0001ae380}, 0xc0002c4a20)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0002b3380?}, {0x10559d388?, 0xc0001ae380?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc000124ea0, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
+2025/03/21 10:45:16 server.go:3418: http: panic serving 127.0.0.1:63969: template: top.html:1: function "definr" not defined
+goroutine 37 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:1903 +0xbe
+panic({0x1055319c0?, 0xc000180350?})
+	/usr/local/Cellar/go/1.22.5/libexec/src/runtime/panic.go:770 +0x132
+html/template.Must(...)
+	/usr/local/Cellar/go/1.22.5/libexec/src/html/template/template.go:368
+todo_app/app/controllers.generateHTML({0x10559d388, 0xc0001ae620}, {0x10551c3e0, 0x1055990f0}, {0xc00019cab8?, 0xc000188200?, 0xc00019caa0?})
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/server.go:25 +0x23a
+todo_app/app/controllers.top({0x10559d388?, 0xc0001ae620?}, 0xc00019cb30?)
+	/Users/inemamoruikuryou/go/src/todo_app/app/controllers/route_main.go:11 +0x6f
+net/http.HandlerFunc.ServeHTTP(0x10581c4a0?, {0x10559d388?, 0xc0001ae620?}, 0x10526763a?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2171 +0x29
+net/http.(*ServeMux).ServeHTTP(0x10502a579?, {0x10559d388, 0xc0001ae620}, 0xc0001ac900)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2688 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc00018ac00?}, {0x10559d388?, 0xc0001ae620?}, 0x6?)
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3142 +0x8e
+net/http.(*conn).serve(0xc00018e2d0, {0x10559da98, 0xc0000954a0})
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:2044 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/usr/local/Cellar/go/1.22.5/libexec/src/net/http/server.go:3290 +0x4b4
