@@ -6,11 +6,19 @@ import (
 	"todo_app/app/models"
 )
 
-// top()はトップページを表示する関数
+// トップページを表示する関数
 // 第一引数: レスポンスライター　クライアントに送信するためのインターフェース
 // 第二引数: リクエスト
 func top(w http.ResponseWriter, r *http.Request) {
-	generateHTML(w, "hello", "layout", "public_navbar", "top")
+	// セッションを取得
+	_, err := session(w, r)
+	// セッションが存在しない場合、ログインページを表示
+	// 存在する場合、ToDoページにリダイレクト
+	if err != nil {
+		generateHTML(w, "hello", "layout", "public_navbar", "top")
+	} else {
+		http.Redirect(w, r, "/todos", 302)
+	}
 }
 
 // ログイン認証を行う関数
@@ -40,5 +48,14 @@ func authenticate(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/", 302)
 	} else {
 		http.Redirect(w, r, "/login", 302)
+	}
+}
+
+func index(w http.ResponseWriter, r *http.Request) {
+	_, err := session(w, r)
+	if err != nil {
+		http.Redirect(w, r, "/", 302)
+	} else {
+		generateHTML(w, nil, "layout", "private_navbar", "index")
 	}
 }

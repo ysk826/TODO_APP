@@ -9,7 +9,15 @@ import (
 // signUp()はサインアップページを表示する関数
 func signUp(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
-		generateHTML(w, nil, "layout", "public_navbar", "signup")
+		// セッションを取得
+		// セッションが存在しない場合、サインアップページを表示
+		// 存在する場合、ToDoページにリダイレクト
+		_, err := session(w, r)
+		if err != nil {
+			generateHTML(w, nil, "layout", "public_navbar", "signup")
+		} else {
+			http.Redirect(w, r, "/todos", 302)
+		}
 	} else if r.Method == "POST" {
 		err := r.ParseForm()
 		if err != nil {
@@ -29,5 +37,13 @@ func signUp(w http.ResponseWriter, r *http.Request) {
 
 // login()はログインページを表示する関数
 func login(w http.ResponseWriter, r *http.Request) {
-	generateHTML(w, nil, "layout", "public_navbar", "login")
+	// セッションを取得
+	// セッションが存在しない場合、ログインページを表示
+	// 存在する場合、ToDoページにリダイレクト
+	_, err := session(w, r)
+	if err != nil {
+		generateHTML(w, nil, "layout", "public_navbar", "login")
+	} else {
+		http.Redirect(w, r, "/todos", 302)
+	}
 }
