@@ -14,6 +14,14 @@ type User struct {
 	CreatedAt time.Time
 }
 
+type Session struct {
+	ID        int
+	UUID      string
+	Email     string
+	UserID    int
+	CreatedAt time.Time
+}
+
 // ユーザーをDBに作成する関数
 func (u *User) CreateUser() (err error) {
 	cmd := `INSERT INTO users (
@@ -81,4 +89,25 @@ func (u *User) DeleteUser() (err error) {
 		log.Fatalln(err)
 	}
 	return err
+}
+
+// emailからユーザーを取得する関数
+func GetUserByEmail(email string) (user User, err error) {
+	user = User{}
+	cmd := `SELECT
+				id,
+				uuid,
+				name,
+				email,
+				password,
+				created_at
+			FROM users WHERE email = ?`
+	err = Db.QueryRow(cmd, email).Scan(
+		&user.ID,
+		&user.UUID,
+		&user.Name,
+		&user.Email,
+		&user.Password,
+		&user.CreatedAt)
+	return user, err
 }
