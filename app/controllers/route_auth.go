@@ -47,3 +47,18 @@ func login(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/todos", 302)
 	}
 }
+
+func logout(w http.ResponseWriter, r *http.Request) {
+	cookie, err := r.Cookie("_cookie")
+	if err != nil {
+		log.Println(err)
+	}
+
+	// http.ErrNoCookieはクッキーが存在しない場合のエラー
+	// クッキーが存在する場合、セッションを削除
+	if err != http.ErrNoCookie {
+		session := models.Session{UUID: cookie.Value}
+		session.DeleteSessionByUUID()
+	}
+	http.Redirect(w, r, "/login", 302)
+}
