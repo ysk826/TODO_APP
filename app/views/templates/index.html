@@ -7,9 +7,8 @@ User.Name:{{.Name}}
 <hr>
 
 {{ range .Todos}}
-<div>{{ .Content}}</div>
-<p><a href="/todos/edit/{{.ID}}">Edit</a>]</p>
-<p><a href="/todos/delete/{{.ID}}">Delete</a>]</p>
+<div>{{ .Content }}</div>
+<p>[<a href="/todos/edit/{{.ID}}">Edit</a>]</p>
 <hr>
 {{end}}
 {{end}}
